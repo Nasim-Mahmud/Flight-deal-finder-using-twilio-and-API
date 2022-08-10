@@ -2,4 +2,6 @@
 # to achieve the program requirements.
 import requests
 
+parameters = {
 
+}
