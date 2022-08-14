@@ -7,4 +7,4 @@ parameters = {
 
 }
 
-response = requests.get()
+response = requests.get(url="", params=parameters)
