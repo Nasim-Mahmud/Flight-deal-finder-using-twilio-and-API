@@ -18,4 +18,3 @@ sheety_response = requests.get(url="https://api.sheety.co/43bd6cbcf5d90c6b7ffb3c
 
 sheet_data = sheety_response.json()["prices"][0]["iataCode"]
 print(sheet_data)
-
