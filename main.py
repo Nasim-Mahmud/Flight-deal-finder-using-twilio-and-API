@@ -16,5 +16,5 @@ sheety_parameters = {
 sheety_response = requests.get(url="https://api.sheety.co/43bd6cbcf5d90c6b7ffb3c6b3c961f51/myFlightDeals/prices",
                         params=sheety_parameters, headers=sheety_headers)
 
-sheety_data = sheety_response.json()
-print(sheety_data["prices"])
+sheet_data = sheety_response.json()["prices"]
+print(sheet_data)
