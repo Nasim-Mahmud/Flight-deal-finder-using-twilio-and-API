@@ -5,6 +5,7 @@
 import requests
 from twilio.rest import Client
 from pprint import pprint
+import flight_search
 
 sheety_headers = {
 "Authorization": "Basic TmFzaW06MTk5NjIyODA="
@@ -21,6 +22,6 @@ sheet_data = sheety_response.json()
 for n in range(0, len(sheet_data["prices"])):
     data = sheet_data["prices"][n]["iataCode"]
     if data == "":
-        print("OK")
+        pass
     else:
         pass
