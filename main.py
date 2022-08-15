@@ -22,3 +22,5 @@ for n in range(0, len(sheet_data["prices"])):
     data = sheet_data["prices"][n]["iataCode"]
     if data == "":
         print("OK")
+    else:
+        pass
