@@ -17,4 +17,4 @@ sheety_response = requests.get(url="https://api.sheety.co/43bd6cbcf5d90c6b7ffb3c
                         params=sheety_parameters, headers=sheety_headers)
 
 sheety_data = sheety_response.json()
-print(sheety_data)
+print(sheety_data["prices"])
