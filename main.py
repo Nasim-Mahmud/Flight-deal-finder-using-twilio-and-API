@@ -16,5 +16,10 @@ sheety_parameters = {
 sheety_response = requests.get(url="https://api.sheety.co/43bd6cbcf5d90c6b7ffb3c6b3c961f51/myFlightDeals/prices",
                         params=sheety_parameters, headers=sheety_headers)
 
-sheet_data = sheety_response.json()["prices"][0]["iataCode"]
-pprint(sheet_data)
+sheet_data = sheety_response.json()
+a = len(sheet_data["prices"])
+print(a)
+
+# for n in a:
+#     data = sheet_data["prices"][n]["iataCode"]
+#     print(data)
