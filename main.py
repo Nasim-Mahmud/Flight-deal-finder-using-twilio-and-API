@@ -5,7 +5,7 @@
 import requests
 from twilio.rest import Client
 from pprint import pprint
-import flight_search
+from flight_search import FlightSearch
 
 sheety_headers = {
 "Authorization": "Basic TmFzaW06MTk5NjIyODA="
