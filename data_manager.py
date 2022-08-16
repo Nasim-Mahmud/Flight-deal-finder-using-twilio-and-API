@@ -7,6 +7,7 @@ class DataManager:
     def __init__(self):
         self.destination = {}
 
-    def getting_destination:
+    def getting_destination(self):
         sheety_response = requests.get(url=SHEETY_ENDPOINT)
         sheet_data = sheety_response.json()
+        self.destination = sheet_data["prices"]
