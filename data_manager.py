@@ -9,3 +9,4 @@ class DataManager:
 
     def getting_destination:
         sheety_response = requests.get(url=SHEETY_ENDPOINT)
+        sheet_data = sheety_response.json()

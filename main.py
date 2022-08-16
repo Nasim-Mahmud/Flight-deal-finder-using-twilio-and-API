@@ -14,7 +14,7 @@ sheety_parameters = {
 
 }
 
-sheet_data = sheety_response.json()
+
 
 for n in range(0, len(sheet_data["prices"])):
     data = sheet_data["prices"][n]["iataCode"]
