@@ -2,7 +2,7 @@
 # to achieve the program requirements.
 
 # Adding parameters
-import data_manager
+from data_manager import DataManager
 from flight_search import FlightSearch
 
 
