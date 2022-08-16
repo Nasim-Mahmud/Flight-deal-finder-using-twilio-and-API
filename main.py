@@ -2,17 +2,10 @@
 # to achieve the program requirements.
 
 # Adding parameters
-import requests
+
 from twilio.rest import Client
 from pprint import pprint
 from flight_search import FlightSearch
-
-sheety_headers = {
-"Authorization": "Basic TmFzaW06MTk5NjIyODA="
-}
-sheety_parameters = {
-
-}
 
 
 
