@@ -5,7 +5,3 @@ from flight_search import FlightSearch
 
 # Adding parameters
 
-
-
-
-
