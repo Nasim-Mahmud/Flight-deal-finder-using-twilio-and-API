@@ -14,3 +14,5 @@ class DataManager:
         self.destination = sheet_data["prices"]
 
         return self.destination
+
+
