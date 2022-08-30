@@ -12,5 +12,4 @@ class DataManager:
         sheety_response = requests.get(url=SHEETY_ENDPOINT)
         sheet_data = sheety_response.json()
         self.destination = sheet_data["prices"]
-
         return self.destination
