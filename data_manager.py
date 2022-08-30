@@ -13,4 +13,5 @@ class DataManager:
         sheet_data = sheety_response.json()
         self.destination = sheet_data["prices"]
 
+
         return self.destination
