@@ -3,20 +3,20 @@
 
 import requests
 
-shetty_endpoint = "https://api.sheety.co/43bd6cbcf5d90c6b7ffb3c6b3c961f51/fd/prices"
+sheety_endpoint = "https://api.sheety.co/43bd6cbcf5d90c6b7ffb3c6b3c961f51/fd/prices"
 tequila_endpoint = "https://api.tequila.kiwi.com/locations/query"
 
 tequila_apiKey_header = {
     "apikey": "mwtoLjx_0-VcKUyqwJBgOFr2omnjP88_"
 }
 
-shetty_response = requests.get(url=shetty_endpoint)
-shetty_data = shetty_response.json()
+sheety_response = requests.get(url=sheety_endpoint)
+sheety_data = sheety_response.json()
 
 # Putting the IATA codes into the google sheets using tequila and sheety api
-for i in range(0, len(shetty_data["prices"])):
-    city_names = shetty_data["prices"][i]["city"]
-    prices = shetty_data["prices"][i]["lowestPrice"]
+for i in range(0, len(sheety_data["prices"])):
+    city_names = sheety_data["prices"][i]["city"]
+    prices = sheety_data["prices"][i]["lowestPrice"]
     teq_parameters = {
         "term": city_names,
     }
@@ -25,12 +25,12 @@ for i in range(0, len(shetty_data["prices"])):
     teq_data = teq_response.json()
     IATA_codes = teq_data["locations"][0]["code"]
 
-    shetty_parameters = {
+    sheety_parameters = {
         "price": {
             "iataCode": IATA_codes,
         }
     }
 
-    shetty_put_endpoint = f"{shetty_endpoint}/{i + 2}"
-    IATA_shetty = requests.put(url=shetty_put_endpoint, json=shetty_parameters)
+    sheety_put_endpoint = f"{sheety_endpoint}/{i + 2}"
+    IATA_sheety = requests.put(url=sheety_put_endpoint, json=sheety_parameters)
 
