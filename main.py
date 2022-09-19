@@ -13,7 +13,7 @@ tequila_apiKey_header = {
 sheety_response = requests.get(url=sheety_endpoint)
 sheety_data = sheety_response.json()
 
-# Putting the IATA codes into the google sheets using tequila and sheety api
+# Putting the IATA codes into the Google sheets using tequila and sheety api
 for i in range(0, len(sheety_data["prices"])):
     city_names = sheety_data["prices"][i]["city"]
     prices = sheety_data["prices"][i]["lowestPrice"]
