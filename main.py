@@ -4,15 +4,22 @@
 import requests
 
 shetty_endpoint = "https://api.sheety.co/43bd6cbcf5d90c6b7ffb3c6b3c961f51/fd/prices"
-tequila_endpoint = "https://api.tequila.kiwi.com/v2/search"
+tequila_endpoint = "https://api.tequila.kiwi.com/locations/query"
 
 tequila_apiKey_header = {
     "apikey": "mwtoLjx_0-VcKUyqwJBgOFr2omnjP88_"
 }
 
 teq_parameters = {
-    "fly_from": "FRA"
+    "term": "Dhaka"
 }
 
-response = requests.get(url=tequila_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
-print(response.text)
+shetty_response = requests.get(url=shetty_endpoint)
+shetty_data = shetty_response.json()
+city_names = shetty_data["prices"][1]["city"]
+print(city_names)
+
+teq_response = requests.get(url=tequila_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
+teq_data = teq_response.json()
+IATA_codes = teq_data["locations"][0]["code"]
+print(IATA_codes)
