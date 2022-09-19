@@ -9,8 +9,8 @@ tequila_endpoint = "https://api.tequila.kiwi.com/v2/search"
 tequila_apiKey = "mwtoLjx_0-VcKUyqwJBgOFr2omnjP88_"
 
 teq_parameters = {
-    "apikey": tequila_apiKey,
     "fly_from": "Dhaka"
 }
 
-res
+response = requests.get(url=tequila_endpoint, params=teq_parameters, headers=tequila_apiKey)
+print(response.text)
