@@ -16,7 +16,7 @@ print(shetty_data)
 
 for i in range(0, len(shetty_data["prices"])):
     city_names = shetty_data["prices"][i]["city"]
-    prices =shetty_data["prices"][i]["lowestPrice"]
+    prices = shetty_data["prices"][i]["lowestPrice"]
     teq_parameters = {
         "term": city_names,
     }
@@ -32,6 +32,6 @@ for i in range(0, len(shetty_data["prices"])):
         }
     }
 
-    shetty_put_endpoint = f"{shetty_endpoint}/{i+2}"
+    shetty_put_endpoint = f"{shetty_endpoint}/{i + 2}"
     IATA_shetty = requests.put(url=shetty_put_endpoint, json=shetty_parameters)
     print(IATA_shetty.text)
