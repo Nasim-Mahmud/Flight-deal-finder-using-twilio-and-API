@@ -12,7 +12,7 @@ tequila_apiKey_header = {
 
 shetty_response = requests.get(url=shetty_endpoint)
 shetty_data = shetty_response.json()
-print(shetty_data)
+
 
 for i in range(0, len(shetty_data["prices"])):
     city_names = shetty_data["prices"][i]["city"]
@@ -24,7 +24,6 @@ for i in range(0, len(shetty_data["prices"])):
     teq_response = requests.get(url=tequila_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
     teq_data = teq_response.json()
     IATA_codes = teq_data["locations"][0]["code"]
-    # print(IATA_codes)
 
     shetty_parameters = {
         "price": {
@@ -34,4 +33,4 @@ for i in range(0, len(shetty_data["prices"])):
 
     shetty_put_endpoint = f"{shetty_endpoint}/{i + 2}"
     IATA_shetty = requests.put(url=shetty_put_endpoint, json=shetty_parameters)
-    print(IATA_shetty.text)
+
