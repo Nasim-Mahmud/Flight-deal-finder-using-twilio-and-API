@@ -10,16 +10,18 @@ tequila_apiKey_header = {
     "apikey": "mwtoLjx_0-VcKUyqwJBgOFr2omnjP88_"
 }
 
-teq_parameters = {
-    "term": "Dhaka"
-}
-
 shetty_response = requests.get(url=shetty_endpoint)
 shetty_data = shetty_response.json()
-city_names = shetty_data["prices"][1]["city"]
-print(city_names)
 
-teq_response = requests.get(url=tequila_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
-teq_data = teq_response.json()
-IATA_codes = teq_data["locations"][0]["code"]
-print(IATA_codes)
+for names in shetty_data["prices"]:
+    city_names = names["city"]
+    print(city_names)
+
+    teq_parameters = {
+        "term": city_names,
+    }
+
+    teq_response = requests.get(url=tequila_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
+    teq_data = teq_response.json()
+    IATA_codes = teq_data["locations"][0]["code"]
+    print(IATA_codes)
