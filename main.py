@@ -22,4 +22,13 @@ for names in shetty_data["prices"]:
     teq_response = requests.get(url=tequila_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
     teq_data = teq_response.json()
     IATA_codes = teq_data["locations"][0]["code"]
-    print(IATA_codes)
+    # print(IATA_codes)
+
+    shetty_parameters = {
+        "price": {
+            "iata code": IATA_codes
+        }
+    }
+
+    IATA_shetty = requests.post(url=shetty_endpoint, params=shetty_parameters)
+    print(IATA_shetty)
