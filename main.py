@@ -26,9 +26,10 @@ for names in shetty_data["prices"]:
 
     shetty_parameters = {
         "price": {
-            "iata code": IATA_codes
+            "city": city_names,
+            "iataCode": IATA_codes
         }
     }
 
     IATA_shetty = requests.post(url=shetty_endpoint, params=shetty_parameters)
-    print(IATA_shetty)
+    print(IATA_shetty.text)
