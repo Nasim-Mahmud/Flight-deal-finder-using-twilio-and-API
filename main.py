@@ -15,8 +15,6 @@ shetty_data = shetty_response.json()
 
 for names in shetty_data["prices"]:
     city_names = names["city"]
-    print(city_names)
-
     teq_parameters = {
         "term": city_names,
     }
