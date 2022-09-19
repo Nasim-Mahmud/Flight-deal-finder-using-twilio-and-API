@@ -33,6 +33,6 @@ for names in shetty_data["prices"]:
             "lowestPrice": prices
         }
     }
-    shetty_put_endpoint = f"{shetty_endpoint}/1"
-    IATA_shetty = requests.put(url=shetty_put_endpoint, json=shetty_parameters)
+
+    IATA_shetty = requests.post(url=shetty_endpoint, json=shetty_parameters)
     print(IATA_shetty.text)
