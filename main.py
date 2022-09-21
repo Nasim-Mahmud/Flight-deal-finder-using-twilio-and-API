@@ -49,14 +49,14 @@ for i in range(0, len(sheety_data["prices"])):
     price = sheety_data["prices"][i]["lowestPrice"]
 
     for j in range(0, 180):
-        j = j * 2
+        # j = j * 2
         target_date = datetime.strftime(datetime.now() + relativedelta(days=+j), "%d/%m/%Y")
         teq_parameters = {
             "fly_from": "LHR",
             "fly_to": iataCodes,
             "date_from": today_date,
             "date_to": target_date,
-            "curr": "USD"
+            "curr": "EUR"
         }
 
         teq_response = requests.get(url=teq_search_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
@@ -68,4 +68,4 @@ for i in range(0, len(sheety_data["prices"])):
             pp.pprint(f"Destination {city_names}, Date: {target_date}, fare: {teq_data['data'][j]['price']}")
         else:
             print(
-                f"In {city_names}, Expected price {price}, No budget flight on {target_date}. Actual fare is: {teq_data['data'][j]['price']} USD")
+                f"In {city_names}, Expected price {price} EUR, No budget flight on {target_date}. Actual fare is: {teq_data['data'][j]['price']} EUR")
