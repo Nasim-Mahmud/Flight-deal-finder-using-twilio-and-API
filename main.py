@@ -1,7 +1,5 @@
 # This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager
 # classes to achieve the program requirements.
-import os
-import time
 import requests
 import pprint
 from datetime import datetime
