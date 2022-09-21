@@ -2,6 +2,9 @@
 # classes to achieve the program requirements.
 
 import requests
+import pprint
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 sheety_endpoint = "https://api.sheety.co/43bd6cbcf5d90c6b7ffb3c6b3c961f51/fd/prices"
 tequila_endpoint = "https://api.tequila.kiwi.com/locations/query"
@@ -36,14 +39,23 @@ sheety_data = sheety_response.json()
 
 #     Cheapest flight search
 teq_search_endpoint = "https://api.tequila.kiwi.com/v2/search"
-for i in range(0, len(sheety_data["prices"])):
-    iataCodes = sheety_data["prices"][i]["iataCode"]
-    teq_parameters = {
-        "fly_from": iataCodes,
-        "date_from":
+today_date = datetime.strftime(datetime.now(), "%d/%m/%Y")
+target_date = datetime.strftime(datetime.now() + relativedelta(months = +6), "%d/%m/%Y")
+print(today_date)
+print(target_date)
 
-    }
+# for i in range(0, len(sheety_data["prices"])):
+iataCodes = sheety_data["prices"][0]["iataCode"]
+teq_parameters = {
+    "fly_from": "DAC",
+    "fly_to": "FRA",
+    "date_from": today_date,
+    "date_to": target_date,
 
-    teq_response = requests.get(url=teq_search_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
-    teq_data = teq_response.json()
-    print(iataCodes)
+
+}
+
+teq_response = requests.get(url=teq_search_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
+teq_data = teq_response.json()
+pp = pprint.PrettyPrinter(indent=4)
+pp.pprint(teq_data)
