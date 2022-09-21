@@ -61,8 +61,7 @@ for i in range(0, len(sheety_data["prices"])):
         teq_response = requests.get(url=teq_search_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
         teq_data = teq_response.json()
         pp = pprint.PrettyPrinter(indent=4)
-        # pp.pprint(f"{target_date} fare: {teq_data['data'][0]['price']}")
-        # pp.pprint(f"Dhaka to {city_names}: {teq_data['data'][i]['price']} USD")
+
         if teq_data['data'][j]['price'] <= price:
             pp.pprint(f"Destination {city_names}, Date: {target_date}, fare: {teq_data['data'][j]['price']}")
         else:
