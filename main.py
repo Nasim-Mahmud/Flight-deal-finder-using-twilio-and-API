@@ -35,4 +35,12 @@ sheety_data = sheety_response.json()
 #     IATA_sheety = requests.put(url=sheety_put_endpoint, json=sheety_parameters)
 
 #     Cheapest flight search
+for i in range(0, len(sheety_data["prices"])):
+    city_names = sheety_data["prices"][i]["city"]
+    prices = sheety_data["prices"][i]["lowestPrice"]
+teq_parameters = {
+        "term": city_names,
+    }
 
+    teq_response = requests.get(url=tequila_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
+    teq_data = teq_response.json()
