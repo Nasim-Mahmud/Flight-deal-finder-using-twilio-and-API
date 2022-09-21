@@ -44,12 +44,12 @@ today_date = datetime.strftime(datetime.now(), "%d/%m/%Y")
 print(today_date)
 
 # for i in range(0, len(sheety_data["prices"])):
-for j in range(0, 180):
+for j in range(0, 3):
     target_date = datetime.strftime(datetime.now() + relativedelta(days=+j), "%d/%m/%Y")
     # iataCodes = sheety_data["prices"][0]["iataCode"]
     # city_names = sheety_data["prices"][0]["city"]
     teq_parameters = {
-        "fly_from": "DAC",
+        "fly_from": "LHR",
         "fly_to": "IST",
         "date_from": today_date,
         "date_to": target_date,
@@ -59,5 +59,6 @@ for j in range(0, 180):
     teq_response = requests.get(url=teq_search_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
     teq_data = teq_response.json()
     pp = pprint.PrettyPrinter(indent=4)
-        # print()
-        # pp.pprint(f"Dhaka to {city_names}: {teq_data['data'][i]['price']} USD")
+    # pp.pprint(f"{target_date} fare: {teq_data['data'][0]['price']}")
+    # pp.pprint(f"Dhaka to {city_names}: {teq_data['data'][i]['price']} USD")
+    pp.pprint(f"Date: {target_date}, fare: {teq_data['data'][j]['price']}")
