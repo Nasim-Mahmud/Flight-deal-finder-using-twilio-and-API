@@ -13,8 +13,8 @@ tequila_apiKey_header = {
     "apikey": "mwtoLjx_0-VcKUyqwJBgOFr2omnjP88_"
 }
 
-sheety_response = requests.get(url=sheety_endpoint)
-sheety_data = sheety_response.json()
+# sheety_response = requests.get(url=sheety_endpoint)
+# sheety_data = sheety_response.json()
 
 # Putting the IATA codes into the Google sheets using tequila and sheety api
 # for i in range(0, len(sheety_data["prices"])):
@@ -47,7 +47,7 @@ print(today_date)
 for j in range(0, 180):
     target_date = datetime.strftime(datetime.now() + relativedelta(days=+j), "%d/%m/%Y")
     # iataCodes = sheety_data["prices"][0]["iataCode"]
-    city_names = sheety_data["prices"][0]["city"]
+    # city_names = sheety_data["prices"][0]["city"]
     teq_parameters = {
         "fly_from": "DAC",
         "fly_to": "IST",
