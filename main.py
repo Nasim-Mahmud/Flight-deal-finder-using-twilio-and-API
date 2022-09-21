@@ -67,5 +67,5 @@ for i in range(0, len(sheety_data["prices"])):
         if teq_data['data'][j]['price'] <= price:
             pp.pprint(f"Destination {city_names}, Date: {target_date}, fare: {teq_data['data'][j]['price']}")
         else:
-            print(
-                f"In {city_names}, Expected price {price} EUR, No budget flight on {target_date}. Actual fare is: {teq_data['data'][j]['price']} EUR")
+            print(f"In {city_names}, Expected price {price} EUR, No budget flight on {target_date}. "
+                f"Actual fare is: {teq_data['data'][j]['price']} EUR")
