@@ -55,6 +55,8 @@ if userMailId == checkingUserMailId:
             "email": userMailId,
         }
     }
+else:
+    print("Email didn't matched! Try again please.")
 
     sheety_user_response = requests.post(url=sheety_users_endpoint, json=sheety_user_parameters)
     print(sheety_user_response.text)
