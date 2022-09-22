@@ -84,3 +84,5 @@ if userMailId == checkingUserMailId:
         "lastName": lastName,
         "email": userMailId,
     }
+
+sheety_user_response = requests.post(url=sheety_users_endpoint, json=sheety_user_parameters)
