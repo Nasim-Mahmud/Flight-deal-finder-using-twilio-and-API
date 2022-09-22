@@ -44,6 +44,7 @@ sheety_data = sheety_response.json()
 print("Welcome to Nas's Flight Club.")
 firstName = input("What is your first name?\n").title()
 lastName = input("What is your last name?\n").title()
+# Haven't added mail verification yet.
 userMailId = input("What is your email?\n")
 checkingUserMailId = input("Type your mail again.\n")
 
