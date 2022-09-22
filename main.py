@@ -38,6 +38,24 @@ sheety_data = sheety_response.json()
 #     sheety_put_endpoint = f"{sheety_prices_endpoint}/{i + 2}"
 #     IATA_sheety = requests.put(url=sheety_put_endpoint, json=sheety_parameters)
 
+# Sending the offer notification to the user via email
+
+print("Welcome to Nas's Flight Club.\n")
+firstName = input("What is your first name?\n")
+lastName = input("What is your last name?\n")
+userMailId = input("What is your email?\n")
+checkingUserMailId = input("Type your mail again.\n")
+
+if userMailId == checkingUserMailId:
+    sheety_user_parameters = {
+        "firstName": firstName,
+        "lastName": lastName,
+        "email": userMailId,
+    }
+
+    sheety_user_response = requests.post(url=sheety_users_endpoint, json=sheety_user_parameters)
+
+
 #     Cheapest flight search
 teq_search_endpoint = "https://api.tequila.kiwi.com/v2/search"
 today_date = datetime.strftime(datetime.now(), "%d/%m/%Y")
@@ -70,19 +88,6 @@ for i in range(0, len(sheety_data["prices"])):
             print(f"In {city_names}, Expected price {price} EUR, No budget flight on {target_date}. "
                   f"Actual fare is: {teq_data['data'][j]['price']} EUR")
 
-# Sending the offer notification to the user via email
 
-print("Welcome to Nas's Flight Club.\n")
-firstName = input("What is your first name?\n")
-lastName = input("What is your last name?\n")
-userMailId = input("What is your email?\n")
-checkingUserMailId = input("Type your mail again.\n")
 
-if userMailId == checkingUserMailId:
-    sheety_user_parameters = {
-        "firstName": firstName,
-        "lastName": lastName,
-        "email": userMailId,
-    }
 
-    sheety_user_response = requests.post(url=sheety_users_endpoint, json=sheety_user_parameters)
