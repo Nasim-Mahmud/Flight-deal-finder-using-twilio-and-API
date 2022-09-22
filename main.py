@@ -71,6 +71,8 @@ for i in range(0, len(sheety_data["prices"])):
                   f"Actual fare is: {teq_data['data'][j]['price']} EUR")
 
 # Sending the offer notification to the user via email
+
 print("Welcome to Nas's Flight Club.\n")
 firstName = input("What is your first name?\n")
 lastName = input("What is your last name?\n")
+userMailId = input("What is your email?\n")
