@@ -103,7 +103,7 @@ else:
                 flight_found = True
                 # TODO: Sending emails to the users
                 if flight_found:
-                    for k in range(len(user_data["users"])):
+                    for k in range(0, len(user_data["users"])):
                         test_email = user_data["users"][k]["email"]
                         with smtplib.SMTP("smtp.mail.yahoo.com", 587) as connection:
                             connection.starttls()
@@ -112,7 +112,6 @@ else:
                                                 to_addrs=test_email,
                                                 msg=f"Subject:Cheapest flight rate alert!\n\n Destination {city_names},"
                                                     f" Date: {target_date}, fare: {teq_data['data'][j]['price']}")
-                            print("Success!")
 
             else:
                 print(f"In {city_names}, Expected price {price} EUR, No budget flight on {target_date}. "
