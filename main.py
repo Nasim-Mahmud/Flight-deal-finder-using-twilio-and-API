@@ -67,4 +67,3 @@ for i in range(0, len(sheety_data["prices"])):
         else:
             print(f"In {city_names}, Expected price {price} EUR, No budget flight on {target_date}. "
                   f"Actual fare is: {teq_data['data'][j]['price']} EUR")
-
