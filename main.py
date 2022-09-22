@@ -77,3 +77,10 @@ firstName = input("What is your first name?\n")
 lastName = input("What is your last name?\n")
 userMailId = input("What is your email?\n")
 checkingUserMailId = input("Type your mail again.\n")
+
+if userMailId == checkingUserMailId:
+    sheety_user_parameters = {
+        "firstName": firstName,
+        "lastName": lastName,
+        "email": userMailId,
+    }
