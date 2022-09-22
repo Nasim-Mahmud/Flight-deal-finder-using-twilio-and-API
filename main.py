@@ -42,8 +42,8 @@ sheety_data = sheety_response.json()
 # TODO: Sending the offer notification to the user via email
 
 print("Welcome to Nas's Flight Club.")
-firstName = input("What is your first name?\n")
-lastName = input("What is your last name?\n")
+firstName = input("What is your first name?\n").title()
+lastName = input("What is your last name?\n").title()
 userMailId = input("What is your email?\n")
 checkingUserMailId = input("Type your mail again.\n")
 
