@@ -2,17 +2,19 @@
 # classes to achieve the program requirements.
 import requests
 import pprint
+import smtplib
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-sheety_endpoint = "https://api.sheety.co/75f004290b7a8e66b7e5741a6a9e4137/fdV10/prices"
+sheety_prices_endpoint = "https://api.sheety.co/75f004290b7a8e66b7e5741a6a9e4137/fdV10/prices"
+sheety_users_endpoint = "https://api.sheety.co/43bd6cbcf5d90c6b7ffb3c6b3c961f51/fd2/users"
 tequila_endpoint = "https://api.tequila.kiwi.com/locations/query"
 
 tequila_apiKey_header = {
     "apikey": "mwtoLjx_0-VcKUyqwJBgOFr2omnjP88_"
 }
 
-sheety_response = requests.get(url=sheety_endpoint)
+sheety_response = requests.get(url=sheety_prices_endpoint)
 sheety_data = sheety_response.json()
 
 # Putting the IATA codes into the Google sheets using tequila and sheety api
@@ -33,7 +35,7 @@ sheety_data = sheety_response.json()
 #         }
 #     }
 #
-#     sheety_put_endpoint = f"{sheety_endpoint}/{i + 2}"
+#     sheety_put_endpoint = f"{sheety_prices_endpoint}/{i + 2}"
 #     IATA_sheety = requests.put(url=sheety_put_endpoint, json=sheety_parameters)
 
 #     Cheapest flight search
