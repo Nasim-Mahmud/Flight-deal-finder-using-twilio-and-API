@@ -13,6 +13,8 @@ tequila_endpoint = "https://api.tequila.kiwi.com/locations/query"
 my_email = "tmailtwo02@yahoo.com"
 my_pass = "txrlccemnhpedcvj"
 
+till_days = 30
+
 tequila_apiKey_header = {
     "apikey": "mwtoLjx_0-VcKUyqwJBgOFr2omnjP88_"
 }
@@ -83,7 +85,7 @@ else:
         city_names = sheety_data["prices"][i]["city"]
         price = sheety_data["prices"][i]["lowestPrice"]
 
-        for j in range(0, 180):
+        for j in range(0, till_days):
             # j = j * 2
             target_date = datetime.strftime(datetime.now() + relativedelta(days=+j), "%d/%m/%Y")
             teq_parameters = {
