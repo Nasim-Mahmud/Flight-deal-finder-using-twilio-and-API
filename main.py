@@ -56,37 +56,37 @@ if userMailId == checkingUserMailId:
     sheety_user_response = requests.post(url=sheety_users_endpoint, json=sheety_user_parameters)
 
 
-#     Cheapest flight search
-teq_search_endpoint = "https://api.tequila.kiwi.com/v2/search"
-today_date = datetime.strftime(datetime.now(), "%d/%m/%Y")
-
-print(today_date)
-
-for i in range(0, len(sheety_data["prices"])):
-    iataCodes = sheety_data["prices"][i]["iataCode"]
-    city_names = sheety_data["prices"][i]["city"]
-    price = sheety_data["prices"][i]["lowestPrice"]
-
-    for j in range(0, 180):
-        # j = j * 2
-        target_date = datetime.strftime(datetime.now() + relativedelta(days=+j), "%d/%m/%Y")
-        teq_parameters = {
-            "fly_from": "LHR",
-            "fly_to": iataCodes,
-            "date_from": today_date,
-            "date_to": target_date,
-            "curr": "EUR"
-        }
-
-        teq_response = requests.get(url=teq_search_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
-        teq_data = teq_response.json()
-        pp = pprint.PrettyPrinter(indent=4)
-
-        if teq_data['data'][j]['price'] <= price:
-            pp.pprint(f"Destination {city_names}, Date: {target_date}, fare: {teq_data['data'][j]['price']}")
-        else:
-            print(f"In {city_names}, Expected price {price} EUR, No budget flight on {target_date}. "
-                  f"Actual fare is: {teq_data['data'][j]['price']} EUR")
+# #     Cheapest flight search
+# teq_search_endpoint = "https://api.tequila.kiwi.com/v2/search"
+# today_date = datetime.strftime(datetime.now(), "%d/%m/%Y")
+#
+# print(today_date)
+#
+# for i in range(0, len(sheety_data["prices"])):
+#     iataCodes = sheety_data["prices"][i]["iataCode"]
+#     city_names = sheety_data["prices"][i]["city"]
+#     price = sheety_data["prices"][i]["lowestPrice"]
+#
+#     for j in range(0, 180):
+#         # j = j * 2
+#         target_date = datetime.strftime(datetime.now() + relativedelta(days=+j), "%d/%m/%Y")
+#         teq_parameters = {
+#             "fly_from": "LHR",
+#             "fly_to": iataCodes,
+#             "date_from": today_date,
+#             "date_to": target_date,
+#             "curr": "EUR"
+#         }
+#
+#         teq_response = requests.get(url=teq_search_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
+#         teq_data = teq_response.json()
+#         pp = pprint.PrettyPrinter(indent=4)
+#
+#         if teq_data['data'][j]['price'] <= price:
+#             pp.pprint(f"Destination {city_names}, Date: {target_date}, fare: {teq_data['data'][j]['price']}")
+#         else:
+#             print(f"In {city_names}, Expected price {price} EUR, No budget flight on {target_date}. "
+#                   f"Actual fare is: {teq_data['data'][j]['price']} EUR")
 
 
 
