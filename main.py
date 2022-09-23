@@ -61,20 +61,14 @@ def user_details():
                 "email": userMailId,
             }
         }
-        sheety_user_response = requests.post(url=sheety_users_endpoint, json=sheety_user_parameters)
-        user_data = sheety_user_response.json()
-        return user_data
+        sheety_user_response_edit = requests.post(url=sheety_users_endpoint, json=sheety_user_parameters)
     else:
         print("Email didn't matched! Try again please.")
 
 
-ans = input("Welcome to Nas's Flight Club. Have your registered yet? y/n\n")
-if ans != "y":
-    user_details()
-else:
+def search_engine():
     sheety_user_response = requests.get(url=sheety_users_endpoint)
     user_data = sheety_user_response.json()
-
     # TODO:     Cheapest flight search
     teq_search_endpoint = "https://api.tequila.kiwi.com/v2/search"
     today_date = datetime.strftime(datetime.now(), "%d/%m/%Y")
@@ -96,7 +90,8 @@ else:
                 "curr": "EUR"
             }
 
-            teq_response = requests.get(url=teq_search_endpoint, params=teq_parameters, headers=tequila_apiKey_header)
+            teq_response = requests.get(url=teq_search_endpoint, params=teq_parameters,
+                                        headers=tequila_apiKey_header)
             teq_data = teq_response.json()
             pp = pprint.PrettyPrinter(indent=4)
 
@@ -118,4 +113,13 @@ else:
             else:
                 print(f"In {city_names}, Expected price {price} EUR, No budget flight on {target_date}. "
                       f"Actual fare is: {teq_data['data'][j]['price']} EUR")
+
+
+ans = input("Welcome to Nas's Flight Club. Have your registered yet? y/n\n")
+if ans == "y":
+    search_engine()
+else:
+    user_details()
+    search_engine()
+
 
