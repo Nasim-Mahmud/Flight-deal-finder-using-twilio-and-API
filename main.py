@@ -121,5 +121,3 @@ if ans == "y":
 else:
     user_details()
     search_engine()
-
-
