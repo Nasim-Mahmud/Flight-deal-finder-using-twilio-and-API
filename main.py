@@ -116,11 +116,9 @@ def search_engine():
                       f"Actual fare is: {teq_data['data'][j]['price']} EUR")
 
 
-
 ans = input("Welcome to Nas's Flight Club. Have your registered yet? y/n\n")
 if ans == "y":
     search_engine()
 else:
     user_details()
     search_engine()
-
